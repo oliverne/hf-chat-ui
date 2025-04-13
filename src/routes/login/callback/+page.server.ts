@@ -77,6 +77,8 @@ export async function load({ url, locals, cookies, request, getClientAddress }) 
 		cookies,
 		userAgent: request.headers.get("user-agent") ?? undefined,
 		ip: getClientAddress(),
+		idToken: userData.token.id_token as string, // Pass the id_token
+		accessToken: userData.token.access_token, // Optionally pass the access_token
 	});
 
 	redirect(302, `${base}/`);
